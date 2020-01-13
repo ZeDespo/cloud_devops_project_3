@@ -7,7 +7,7 @@ pipeline {
                 sh '''echo "Multiline shell steps work too"
                       ls -lah
                    '''
-                withAWS(region:'us-west-2') {
+                withAWS(region:'us-west-2', credentials:'Static HTML Publisher') {
                     s3Upload(file:'index.html', bucket:'udacity-cloud-devops-project-3', path:'./index.html')
                 }
             }        
